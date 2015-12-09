@@ -1,0 +1,4 @@
+C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\classes\debug
+C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\pre-dexed\debug\altbeacon-912fe57a437ca4ea1eac251e5fdb3f7e42d7f617.jar
+C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\pre-dexed\debug\classes-809ab52eecb6b33b3360862b971c5da97ad044dd.jar
+C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\pre-dexed\debug\android-support-v4-8eddc34deb7d7c297ce5b59841ed91f1248bf88b.jar

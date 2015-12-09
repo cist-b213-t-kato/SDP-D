@@ -1,0 +1,49 @@
+/* Common styles for Evothings examples and client. */
+
+@import '../fonts/ProximaNova.css';
+@import '../fonts/DragonQuestFC.css';
+
+body {
+    padding: 30px 0px 0px 0px;
+    background-color: black;
+    width: 90%;
+    margin: auto auto auto auto;
+    color: #FFFFFF;    
+}
+
+.title{
+    font-size: 25px;
+}
+
+.frame{
+    border-style:solid;
+    border-width: 1px;
+    padding: 5px 10px 5px 10px;
+    border-color: #FFFFFF;
+}
+
+#message {
+    text-align: center;
+    font-family: "DragonQuestFC";
+    font-size: 25px;
+}
+
+.mark {
+    text-align: right;
+    font-size: small;
+}
+
+.map{
+    width: 100%;
+    height: auto;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+}
+
+/*以下画像のpath*/
+#icon1{
+    image-resolution: "../image/olaf.png";
+}

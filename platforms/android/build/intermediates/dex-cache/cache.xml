@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Etude\cordova-ibeacon\platforms\android\libs\altbeacon.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="df28ff15017707162b508f2bc96637dd57f3ed72">
+        <dex dex="C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\pre-dexed\debug\altbeacon-912fe57a437ca4ea1eac251e5fdb3f7e42d7f617.jar" />
+    </item>
+    <item
+        jar="C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="2ecce82b2447c866dc734b6d09803efe728a4c99">
+        <dex dex="C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\pre-dexed\debug\classes-809ab52eecb6b33b3360862b971c5da97ad044dd.jar" />
+    </item>
+    <item
+        jar="C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2ecce82b2447c866dc734b6d09803efe728a4c99">
+        <dex dex="C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\pre-dexed\debug\classes-809ab52eecb6b33b3360862b971c5da97ad044dd.jar" />
+    </item>
+    <item
+        jar="C:\Users\Etude\cordova-ibeacon\platforms\android\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="9b6a9a9078af571732159b904ad423b03b7cc786">
+        <dex dex="C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\pre-dexed\debug\android-support-v4-8eddc34deb7d7c297ce5b59841ed91f1248bf88b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Etude\cordova-ibeacon\platforms\android\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="9b6a9a9078af571732159b904ad423b03b7cc786">
+        <dex dex="C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\pre-dexed\debug\android-support-v4-8eddc34deb7d7c297ce5b59841ed91f1248bf88b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Etude\cordova-ibeacon\platforms\android\libs\altbeacon.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="df28ff15017707162b508f2bc96637dd57f3ed72">
+        <dex dex="C:\Users\Etude\cordova-ibeacon\platforms\android\build\intermediates\pre-dexed\debug\altbeacon-912fe57a437ca4ea1eac251e5fdb3f7e42d7f617.jar" />
+    </item>
+
+</items>
