@@ -11,22 +11,31 @@
 
 	<style>
 		@import 'ui/css/evothings-app.css';
+        
+        .imgBox{
+            width: 100%;
+            height: auto
+        }
+        
 	</style>
 
 	<script>
-	// Redirect console.log to Evothings Workbench.
-	if (window.hyper && window.hyper.log) { console.log = hyper.log }
+        // Redirect console.log to Evothings Workbench.
+        if (window.hyper && window.hyper.log) { console.log = hyper.log }
 	</script>
 
 	<script src="cordova.js"></script>
 	<script src="libs/jquery/jquery.js"></script>
 	<script src="libs/evothings/evothings.js"></script>
 	<script src="app.js"></script>
+	<script src="hoge.js"></script>
+	<script src="laboratory.js"></script>
 
 </head>
 
 <body>
 
+<!--
 	<header>
 		<button class="back" onclick="history.back()">
 			<img src="ui/images/arrow-left.svg" />
@@ -34,18 +43,27 @@
 
 		<img class="logotype" src="ui/images/logo.svg" alt="Evothings" />
 
-		<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
+		<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>
 	</header>
+-->
 
 	<h1>Cordova iBeacon</h1>
+    
+    <div style="text-align: center">
+        <button onclick="getStamp()">スタンプを入手する</button>
+    </div>
+    
+    <div class="frame">
+        <div id="message">よくきたな ひかりのこうこうせいよ</div>
+        <div class="mark">▼</div>
+    </div>
 
 	<p>This app displays the nearest ranged beacon and monitors region enter/exit events. Before the app will work you need to add your beacons by editing the variables mRegions and mRegionData in file app.js.</p>
-
+    
+    <img id="viewer" src="ui/images/none.jpg" class="imgBox"/>
 	<ul id="beacon" class="dynamic"></ul>
-
 	<ul id="events" class="dynamic"></ul>
     
-    <img id="viewer" width="300" height="200"/>
 
 </body>
 

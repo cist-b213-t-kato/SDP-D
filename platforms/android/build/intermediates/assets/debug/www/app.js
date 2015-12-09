@@ -1,3 +1,7 @@
+
+// Nearest ranged beacon.
+var mNearestBeacon = null;
+
 var app = (function()
 {
 	// Application object.
@@ -6,8 +10,6 @@ var app = (function()
 	// History of enter/exit events.
 	var mRegionEvents = [];
 
-	// Nearest ranged beacon.
-	var mNearestBeacon = null;
 
 	// Timer that displays nearby beacons.
 	var mNearestBeaconDisplayTimer = null;
@@ -32,17 +34,17 @@ var app = (function()
 	var mRegions =
 		[   
 			{   
-				id: 'region1',
-				uuid: '00000000-91FD-1001-B000-001C4D67D34C',
-				major: 1,
-				minor: 1 
+                id: 'region1',
+                uuid: '00000000-91FD-1001-B000-001C4D67D34C',
+                major: 1,
+                minor: 1 
 			},  
-			//{ 
-			//      id: 'region2',
-			//      uuid: 'f7826da6-4fa2-4e98-8024-bc5b71e0893e',
-			//      major: 60378,
-			//      minor: 22122
-			//} 
+			{ 
+                id: 'region2',
+                uuid: '00000000-91FD-1001-B000-001C4D67D34C',
+                major: 1,
+                minor: 2
+			} 
 		];
 
 	// Region data is defined here. Mapping used is from
@@ -54,6 +56,9 @@ var app = (function()
 		'region1': 'Region One',
 		'region2': 'Region Two'
 	};
+    
+    
+    var mHoge = new Object();
 
 	app.initialize = function()
 	{
@@ -164,6 +169,12 @@ var app = (function()
 			time: getTimeNow(),
 			regionId: regionId
 		});
+        
+        mHoge[regionId] = {
+			type: eventType,
+			time: getTimeNow(),
+			regionId: regionId,
+        };
 
 		// Truncate if more than ten entries.
 		if (mRegionEvents.length > 10)
@@ -197,6 +208,7 @@ var app = (function()
 			if (!mNearestBeacon)
 			{
 				mNearestBeacon = beacon;
+                state = 1;
 			}
 			else
 			{
@@ -230,11 +242,14 @@ var app = (function()
         );
 		$('#beacon').append(element);
         
+        //DOM Storage
+        localStorage.setItem('beaconMinor', mNearestBeacon.minor);
+        
         /**/
-        if(mNearestBeacon.accuracy < 5.0){
-            $("img#viewer").attr({"src":"olaf.png"});
-        }else{
-            $("img#viewer").attr({"src":"image01.jpg"});
+        if(mNearestBeacon.minor == 1 ){
+            $("img#viewer").attr({"src":"ui/images/olaf.png"});
+        }else if(mNearestBeacon.minor == 2 ){
+            $("img#viewer").attr({"src":"ui/images/daiji.jpg"});
         }
         /**/
 	}
@@ -265,17 +280,32 @@ var app = (function()
 		$('#events').empty();
 
 		// Update list.
-		for (var i = mRegionEvents.length - 1; i >= 0; --i)
-		{
-			var event = mRegionEvents[i];
-			var title = getEventDisplayString(event);
-			var element = $(
-				'<li>'
-				+ '<strong>' + title + '</strong>'
-				+ '</li>'
-				);
-			$('#events').append(element);
-		}
+//		for (var i = mRegionEvents.length - 1; i >= 0; --i)
+//		{
+//			var event = mRegionEvents[i];
+//			var title = getEventDisplayString(event);
+//			var element = $(
+//				'<li>'
+//				+ '<strong>' + title + '</strong>'
+//				+ '</li>'
+//				);
+//			$('#events').append(element);
+//		}
+        
+        for(var regionId in mHoge){
+            var element = $(
+                '<li>'
+                + '<strong>'
+                + mHoge[regionId].time + ': '
+                + mRegionData[mHoge[regionId].regionId] + ' '
+                + mRegionStateNames[mHoge[regionId].type]
+                + '</strong>'
+                + 
+                + '</li>'
+            );
+            
+            $('#events').append(element);
+        }
 
 		// If the list is empty display a help text.
 		if (mRegionEvents.length <= 0)
