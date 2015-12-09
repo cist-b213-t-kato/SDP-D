@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no
+		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Cordova iBeacon</title>
+    <style>
+        @import 'ui/css/evothings-app.css';
+        
+        .imgBox{
+            width: 100%;
+            height: auto
+        }
+        
+    </style>
+    <script>
+        // Redirect console.log to Evothings Workbench.
+        if (window.hyper && window.hyper.log) {
+            console.log = hyper.log
+        }
+    </script>
+    <script src="cordova.js"></script>
+    <script src="libs/jquery/jquery.js"></script>
+    <script src="libs/evothings/evothings.js"></script>
+    <script src="app.js"></script>
+    <script src="stamp.js"></script>
+    <script src="laboratory.js"></script>
+</head>
+
+<body> 
+    <div style="text-align: center">
+        <img id="stampimg" class="imgBox"/>
+        <p id="getStampMessage"></p>
+        <button onclick="history.back()">戻る</button>
+    </div>
+</body>
+</html>
