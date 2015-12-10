@@ -245,13 +245,8 @@ var app = (function()
         //DOM Storage
         localStorage.setItem('beaconMinor', mNearestBeacon.minor);
         
-        /**/
-        if(mNearestBeacon.minor == 1 ){
-            $("img#viewer").attr({"src":"ui/images/olaf.png"});
-        }else if(mNearestBeacon.minor == 2 ){
-            $("img#viewer").attr({"src":"ui/images/daiji.jpg"});
-        }
-        /**/
+        $("img#viewer").attr({"src":laboratory[mNearestBeacon.minor].imagePath});
+        
 	}
 
 	function displayRecentRegionEvent()
