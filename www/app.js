@@ -59,6 +59,8 @@ var app = (function()
     
     
     var mHoge = new Object();
+    
+    var mBeacons;
 
 	app.initialize = function()
 	{
@@ -108,7 +110,9 @@ var app = (function()
 
 		function onDidRangeBeaconsInRegion(result)
 		{
+            //beaconsをもらう？
 			updateNearestBeacon(result.beacons);
+            mBeacons = result.beacons;
 		}
 
 		function onError(errorMessage)
@@ -242,9 +246,10 @@ var app = (function()
         );
 		$('#beacon').append(element);
         
-        //DOM Storage
+        //DOM Storageを使う
         localStorage.setItem('beaconMinor', mNearestBeacon.minor);
         
+        //スタンプの表示
         $("img#viewer").attr({"src":laboratory[mNearestBeacon.minor].imagePath});
         
 	}
@@ -287,15 +292,16 @@ var app = (function()
 //			$('#events').append(element);
 //		}
         
+//        $('#events').append('mBeacons length: ' + mBeacons.length);
         for(var regionId in mHoge){
             var element = $(
                 '<li>'
                 + '<strong>'
                 + mHoge[regionId].time + ': '
                 + mRegionData[mHoge[regionId].regionId] + ' '
-                + mRegionStateNames[mHoge[regionId].type]
-                + '</strong>'
-                + 
+                + mRegionStateNames[mHoge[regionId].type] + '<br/>'
+                + 'regionId: ' + regionId
+                + '</strong>' 
                 + '</li>'
             );
             
