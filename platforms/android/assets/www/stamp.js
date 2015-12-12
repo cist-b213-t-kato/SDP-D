@@ -1,10 +1,13 @@
 window.onload = function(){
     
     //DOM Storage
-    var beaconMinor = Number(localStorage.getItem('beaconMinor'));
-
+    var regionId = Number(localStorage.getItem('regionId'));
     
-    $("img#stampimg").attr({"src": laboratory[beaconMinor].imagePath});
-    $("p#getStampMessage").append(laboratory[beaconMinor].stampName + "を入手した！");
+//    alert(regionId);
+//    regionId = 1;
+    var imagePath = mRegionData[regionId].imagePath;
+    var stampName = mRegionData[regionId].name;
+    $("img#stampimg").attr({"src": imagePath });
+    $("p#getStampMessage").append( stampName + "を入手した！");
     
 };

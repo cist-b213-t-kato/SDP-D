@@ -10,7 +10,6 @@ var app = (function()
 	// History of enter/exit events.
 	var mRegionEvents = [];
 
-
 	// Timer that displays nearby beacons.
 	var mNearestBeaconDisplayTimer = null;
 
@@ -46,17 +45,6 @@ var app = (function()
                 minor: 2
 			} 
 		];
-
-	// Region data is defined here. Mapping used is from
-	// region id to a string. You can adapt this to your
-	// own needs, and add other data to be displayed.
-	// TODO: Update with major/minor for your own beacons.
-	var mRegionData =
-	{
-		'1': 'Region One',
-		'2': 'Region Two'
-	};
-    
     
     var mHoge = new Object();
     
@@ -167,7 +155,6 @@ var app = (function()
 	{
 		// Save event.
         // この方式は代入ではなく追加
-        // 
 		mRegionEvents.push(
 		{
 			type: eventType,
@@ -175,10 +162,11 @@ var app = (function()
 			regionId: regionId
 		});
         
+        //
         mHoge[regionId] = {
-			type: eventType,
-			time: getTimeNow(),
-			regionId: regionId,
+            type: eventType,
+            time: getTimeNow(),
+            regionId: regionId
         };
 
 		// Truncate if more than ten entries.
@@ -234,8 +222,6 @@ var app = (function()
 
 		// Clear element.
 		$('#beacon').empty();
-        
-        $('#beacon').append('mBeacons length: ' + mBeacons.length);
 
 //        for(var i=0; i<mBeacons.length; i++){
             // Update element.
@@ -258,7 +244,7 @@ var app = (function()
         localStorage.setItem('regionId', mNearestBeacon.minor);
         
         //スタンプの表示
-        $("img#viewer").attr({"src":laboratory[mNearestBeacon.minor].imagePath});
+//        $("img#viewer").attr({"src":mRegionData[mNearestBeacon.minor].imagePath});
         
 	}
 
@@ -287,7 +273,38 @@ var app = (function()
 		// Clear list.
 		$('#events').empty();
 
+//        $('#events').append('mHoge length: ' + mHoge.length);
+        
 		// Update list.
+        for(var regionId in mHoge){
+            var state = mRegionStateNames[mHoge[regionId].type];
+            //電波の届かなくなったイベントは表示しない（ただしリストには残る）
+            if(state == 'Exit'){
+               continue;
+            }
+            var imagePath = mRegionData[regionId].imagePath;
+            var time = mHoge[regionId].time;
+            var stampName = mRegionData[regionId].name;
+            var tagId = 'region'+regionId;
+            var element = $(
+//                '<li>'
+                '<div class="stampBox" id="' + tagId + '">'
+                + '<img src="' + imagePath
+                + '" width="100" height="100"/><br/>'
+                + '<strong>'
+                + time + ' ' + stampName + ' ' + state + ' '
+                + '</strong>'
+                + '</div>'
+//                + '</li>'
+            );    
+            $('#events').append(element);
+            
+            $('#'+tagId).click(function(){
+                location.href = './stamp.html';
+                return false;
+            });
+            
+        }
 //		for (var i = mRegionEvents.length - 1; i >= 0; --i)
 //		{
 //			var event = mRegionEvents[i];
@@ -299,25 +316,6 @@ var app = (function()
 //				);
 //			$('#events').append(element);
 //		}
-        
-        $('#events').append('mHoge length: ' + mHoge.length);
-        for(var regionId in mHoge){
-            var element = $(
-                '<li>'
-                + '<img src="'
-                + laboratory[regionId].imagePath
-                + '" width="100" height="100"/><br/>'
-                + '<strong>'
-                + mHoge[regionId].time + ' '
-                + mRegionData[mHoge[regionId].regionId] + ' '
-                + mRegionStateNames[mHoge[regionId].type] + ' '
-//                + 'regionId: ' + regionId
-                + '</strong>' 
-                + '</li>'
-            );
-            
-            $('#events').append(element);
-        }
 
 		// If the list is empty display a help text.
 		if (mRegionEvents.length <= 0)

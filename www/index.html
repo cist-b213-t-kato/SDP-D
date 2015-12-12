@@ -17,6 +17,11 @@
             height: auto
         }
         
+        .stampBox{
+            background-color: #202020;
+            margin: 4px 0px;
+        }
+        
 	</style>
 
 	<script>
@@ -49,21 +54,28 @@
 
 	<h1>Cordova iBeacon</h1>
     
+<!--
     <div style="text-align: center">
         <button onclick="getStamp()">スタンプを入手する</button>
     </div>
+-->
     
     <div class="frame">
-        <div id="message">よくきたな ひかりのこうこうせいよ</div>
+        <div id="message">
+            よくきたな ひかりのこうこうせいよ<br/>
+            スタンフ゜ を てにいれるのし゛ゃ
+        </div>
         <div class="mark">▼</div>
     </div>
 
-	<p>This app displays the nearest ranged beacon and monitors region enter/exit events. Before the app will work you need to add your beacons by editing the variables mRegions and mRegionData in file app.js.</p>
+<!--	<p>This app displays the nearest ranged beacon and monitors region enter/exit events. Before the app will work you need to add your beacons by editing the variables mRegions and mRegionData in file app.js.</p>-->
     
-    <img id="viewer" src="ui/images/none.jpg" class="imgBox"/>
+<!--    <img id="viewer" src="ui/images/none.jpg" class="imgBox"/>-->
+    <form name="F1">
+	<div id="events" class="dynamic"></div>
+    </form>
+    
 	<ul id="beacon" class="dynamic"></ul>
-	<ul id="events" class="dynamic"></ul>
-    
 
 </body>
 

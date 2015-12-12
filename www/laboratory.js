@@ -1,11 +1,17 @@
-    
-var laboratory = {
-    1:{
+
+// Region data is defined here. Mapping used is from
+// region id to a string. You can adapt this to your
+// own needs, and add other data to be displayed.
+// TODO: Update with major/minor for your own beacons.
+var mRegionData = {
+    '1':{
         imagePath : "./ui/images/olaf.png" ,
-        stampName : "カートハウス・オラフ"
+        name : "カートハウス・オラフ"
     },
-    2:{
+    
+    '2':{
         imagePath : "./ui/images/daiji.jpg" ,
-        stampName : "小林大二"
+        name : "小林大二"
     }
+    
 };
