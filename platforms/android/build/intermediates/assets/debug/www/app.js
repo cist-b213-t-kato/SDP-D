@@ -33,14 +33,14 @@ var app = (function()
 	// You can add as many beacons as you want to use.
 	var mRegions =
 		[   
-			{   
-                id: 'region1',
+			{
+                id: '1',
                 uuid: '00000000-91FD-1001-B000-001C4D67D34C',
                 major: 1,
                 minor: 1 
 			},  
 			{ 
-                id: 'region2',
+                id: '2',
                 uuid: '00000000-91FD-1001-B000-001C4D67D34C',
                 major: 1,
                 minor: 2
@@ -53,8 +53,8 @@ var app = (function()
 	// TODO: Update with major/minor for your own beacons.
 	var mRegionData =
 	{
-		'region1': 'Region One',
-		'region2': 'Region Two'
+		'1': 'Region One',
+		'2': 'Region Two'
 	};
     
     
@@ -112,7 +112,6 @@ var app = (function()
 		{
             //beaconsをもらう？
 			updateNearestBeacon(result.beacons);
-            mBeacons = result.beacons;
 		}
 
 		function onError(errorMessage)
@@ -167,6 +166,8 @@ var app = (function()
 	function saveRegionEvent(eventType, regionId)
 	{
 		// Save event.
+        // この方式は代入ではなく追加
+        // 
 		mRegionEvents.push(
 		{
 			type: eventType,
@@ -206,6 +207,8 @@ var app = (function()
 
 	function updateNearestBeacon(beacons)
 	{
+        mBeacons = beacons;
+        
 		for (var i = 0; i < beacons.length; ++i)
 		{
 			var beacon = beacons[i];
@@ -231,23 +234,28 @@ var app = (function()
 
 		// Clear element.
 		$('#beacon').empty();
+        
+        $('#beacon').append('mBeacons length: ' + mBeacons.length);
 
-		// Update element.
-		var element = $(
-			'<li>'
-			+	'<strong>Nearest Beacon</strong><br />'
-			+	'UUID: ' + mNearestBeacon.uuid + '<br />'
-			+	'Major: ' + mNearestBeacon.major + '<br />'
-			+	'Minor: ' + mNearestBeacon.minor + '<br />'
-			+	'Proximity: ' + mNearestBeacon.proximity + '<br />'
-			+	'Distance: ' + mNearestBeacon.accuracy + '<br />'
-			+	'RSSI: ' + mNearestBeacon.rssi + '<br />'
-			+ '</li>'
-        );
-		$('#beacon').append(element);
+//        for(var i=0; i<mBeacons.length; i++){
+            // Update element.
+            var beacon = mNearestBeacon;
+            var element = $(
+                '<li>'
+                +	'<strong>Nearest Beacon</strong><br />'
+                +	'UUID: ' + beacon.uuid + '<br />'
+                +	'Major: ' + beacon.major + '<br />'
+                +	'Minor: ' + beacon.minor + '<br />'
+                +	'Proximity: ' + beacon.proximity + '<br />'
+                +	'Distance: ' + beacon.accuracy + '<br />'
+                +	'RSSI: ' + beacon.rssi + '<br />'
+                + '</li>'
+            );
+            $('#beacon').append(element);
+//        }
         
         //DOM Storageを使う
-        localStorage.setItem('beaconMinor', mNearestBeacon.minor);
+        localStorage.setItem('regionId', mNearestBeacon.minor);
         
         //スタンプの表示
         $("img#viewer").attr({"src":laboratory[mNearestBeacon.minor].imagePath});
@@ -292,15 +300,18 @@ var app = (function()
 //			$('#events').append(element);
 //		}
         
-//        $('#events').append('mBeacons length: ' + mBeacons.length);
+        $('#events').append('mHoge length: ' + mHoge.length);
         for(var regionId in mHoge){
             var element = $(
                 '<li>'
+                + '<img src="'
+                + laboratory[regionId].imagePath
+                + '" width="100" height="100"/><br/>'
                 + '<strong>'
-                + mHoge[regionId].time + ': '
+                + mHoge[regionId].time + ' '
                 + mRegionData[mHoge[regionId].regionId] + ' '
-                + mRegionStateNames[mHoge[regionId].type] + '<br/>'
-                + 'regionId: ' + regionId
+                + mRegionStateNames[mHoge[regionId].type] + ' '
+//                + 'regionId: ' + regionId
                 + '</strong>' 
                 + '</li>'
             );
