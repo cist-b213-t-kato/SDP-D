@@ -7,20 +7,48 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no
 		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 
-	<title>Cordova iBeacon</title>
+	<title>Open Campus</title>
 
 	<style>
 		@import 'ui/css/evothings-app.css';
         
+/*
         .imgBox{
             width: 100%;
             height: auto
         }
+*/
         
-        .stampBox{
-            background-color: #202020;
-            margin: 4px 0px;
+        .eventBox{
+            width: 100%;
+            margin: 5px 0px;
+            height: 100px
         }
+        
+        .eventBox:after{
+            content: "";
+            display: block;
+            clear: both
+        }
+        
+        .eventBox .stamp{
+            background-color: #A0A0A0;
+            float: left;
+            width: 100px;
+            height: 100%
+        }
+        
+        .eventBox .text{
+            background-color: #202020;
+            float: none;
+            width: auto;
+            margin-left: 110px;
+            padding-left: 15px;
+            height: 100%
+        }
+        
+        
+        
         
 	</style>
 
@@ -52,7 +80,7 @@
 	</header>
 -->
 
-	<h1>Cordova iBeacon</h1>
+	<h1>Open Campus</h1>
     
 <!--
     <div style="text-align: center">
@@ -60,8 +88,8 @@
     </div>
 -->
     
-    <div class="frame">
-        <div id="message">
+    <div class="dqframe">
+        <div class="message">
             よくきたな ひかりのこうこうせいよ<br/>
             スタンフ゜ を てにいれるのし゛ゃ
         </div>
@@ -72,10 +100,15 @@
     
 <!--    <img id="viewer" src="ui/images/none.jpg" class="imgBox"/>-->
     <form name="F1">
-	<div id="events" class="dynamic"></div>
+        <div id="events" class="dynamic">
+        </div>
     </form>
     
-	<ul id="beacon" class="dynamic"></ul>
+<!--
+    <div>
+	   <ul id="beacon" class="dynamic"></ul>
+    </div>
+-->
 
 </body>
 

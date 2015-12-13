@@ -288,12 +288,16 @@ var app = (function()
             var tagId = 'region'+regionId;
             var element = $(
 //                '<li>'
-                '<div class="stampBox" id="' + tagId + '">'
+                '<div class="eventBox" id="' + tagId + '">'
+                + '<div class="stamp">'
                 + '<img src="' + imagePath
                 + '" width="100" height="100"/><br/>'
+                + '</div>'
+                + '<div class="text">'
                 + '<strong>'
-                + time + ' ' + stampName + ' ' + state + ' '
+                + time + '<br/>' + stampName + '<br/>' + state + '<br/>'
                 + '</strong>'
+                + '</div>'
                 + '</div>'
 //                + '</li>'
             );    
