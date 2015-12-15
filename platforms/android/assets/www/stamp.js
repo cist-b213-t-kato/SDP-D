@@ -10,4 +10,6 @@ window.onload = function(){
     $("img#stampimg").attr({"src": imagePath });
     $("p#getStampMessage").append( stampName + "を入手した！");
     
+    localStorage.setItem(regionId, 'acquired');
+    
 };

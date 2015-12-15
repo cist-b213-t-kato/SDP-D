@@ -24,6 +24,4 @@ var mRegionData = {
         name : "まこっち（人違い）"
     }
     
-    
-    
 };

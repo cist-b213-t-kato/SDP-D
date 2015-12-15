@@ -11,6 +11,7 @@
 
 	<style>
 		@import 'ui/css/evothings-app.css';
+        @import 'ui/css/beacon-stamprally.css';
         
 /*
         .imgBox{
@@ -21,7 +22,7 @@
         
         .eventBox{
             width: 100%;
-            margin: 5px 0px;
+            margin: 10px 0px;
             height: 100px
         }
         
@@ -42,13 +43,9 @@
             background-color: #202020;
             float: none;
             width: auto;
-            margin-left: 110px;
+            margin-left: 105px;
             padding-left: 15px;
             height: 100%
-        }
-        
-        li{
-            list-style: none
         }
         
         
@@ -86,31 +83,22 @@
 
 	<h1>Open Campus</h1>
     
-<!--
     <div style="text-align: center">
-        <button onclick="getStamp()">スタンプを入手する</button>
+        <button class="dqfont text" onclick='location.href="./stampListPage.html"'>スタンプいちらん</button>
     </div>
--->
     
     <div class="dqframe">
         <div class="message">
             よくきたな ひかりのこうこうせいよ<br/>
-            スタンフ゜ を てにいれるのし゛ゃ
+            スタンプ を てにいれるのじゃ
         </div>
         <div class="mark">▼</div>
     </div>
-
-<!--	<p>This app displays the nearest ranged beacon and monitors region enter/exit events. Before the app will work you need to add your beacons by editing the variables mRegions and mRegionData in file app.js.</p>-->
     
 <!--    <img id="viewer" src="ui/images/none.jpg" class="imgBox"/>-->
-    <form name="F1">
-        <div id="events" class="dynamic">
-        </div>
-    </form>
+    <div id="events" class="dynamic"></div>
     
-<!--    <div>-->
-	   <ul id="beacon" class="dynamic"></ul>
-<!--    </div>-->
+<!--    <ul id="beacon" class="dynamic"></ul>-->
 
 </body>
 

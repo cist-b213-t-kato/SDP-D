@@ -61,9 +61,13 @@ var app = (function()
     var mHoge = new Object();
     
     var mBeacons;
+    
+//    var acquiredStamp = [];
 
 	app.initialize = function()
 	{
+        var elem = $('hogera');
+        $('#events').append(elem);
 		document.addEventListener('deviceready', onDeviceReady, false);
 		document.addEventListener('pause', onAppToBackground, false);
 		document.addEventListener('resume', onAppToForeground, false);
@@ -252,9 +256,6 @@ var app = (function()
             $('#beacon').append(element);
 //        }
         
-//        //DOM Storageを使う
-//        localStorage.setItem('regionId', mNearestBeacon.minor);
-        
         //スタンプの表示
 //        $("img#viewer").attr({"src":mRegionData[mNearestBeacon.minor].imagePath});
         
@@ -284,17 +285,23 @@ var app = (function()
 	{
 		// Clear list.
 		$('#events').empty();
-
-//        $('#events').append('mHoge length: ' + mHoge.length);
         
 		// Update list.
         for(var regionId in mHoge){
             var state = mRegionStateNames[mHoge[regionId].type];
             //電波の届かなくなったイベントは表示しない（ただしリストには残る）
-            if(state == 'Exit'){
+            if(state == 'Exit' 
+//               || localStorage.getItem(regionId) == 'acquired'
+              )
+            {
                continue;
             }
-            var imagePath = mRegionData[regionId].imagePath;
+            var imagePath;
+            if(localStorage.getItem(regionId)=='acquired'){
+                imagePath = mRegionData[regionId].imagePath;
+            }else{
+                imagePath = './ui/images/questionM.png';
+            }
             var time = mHoge[regionId].time;
             var stampName = mRegionData[regionId].name;
             var tagId = 'region_'+regionId;
@@ -306,11 +313,13 @@ var app = (function()
                 + '</div>'
                 + '<div class="text">'
                 + '<strong>'
-                + time + '<br/>' + stampName + '<br/>' + state + '<br/>'
+                + time + '<br/>'
+                + stampName + '<br/>'
                 + '</strong>'
                 + '</div>'
                 + '</li>'
-            );    
+            );
+            
             $('#events').append(element);
             
             $('#'+tagId).click(function(){
@@ -324,17 +333,6 @@ var app = (function()
             });
             
         }
-//		for (var i = mRegionEvents.length - 1; i >= 0; --i)
-//		{
-//			var event = mRegionEvents[i];
-//			var title = getEventDisplayString(event);
-//			var element = $(
-//				'<li>'
-//				+ '<strong>' + title + '</strong>'
-//				+ '</li>'
-//				);
-//			$('#events').append(element);
-//		}
 
 		// If the list is empty display a help text.
 		if (mRegionEvents.length <= 0)
