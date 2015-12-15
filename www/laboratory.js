@@ -12,6 +12,18 @@ var mRegionData = {
     '2':{
         imagePath : "./ui/images/daiji.jpg" ,
         name : "小林大二"
+    },
+    
+    '3':{
+        imagePath : "./ui/images/daiji.jpg" ,
+        name : "山川さん（人違い）"
+    },
+    
+    '4':{
+        imagePath : "./ui/images/daiji.jpg" ,
+        name : "まこっち（人違い）"
     }
+    
+    
     
 };

@@ -43,6 +43,18 @@ var app = (function()
                 uuid: '00000000-91FD-1001-B000-001C4D67D34C',
                 major: 1,
                 minor: 2
+			},  
+			{ 
+                id: '3',
+                uuid: '00000000-91FD-1001-B000-001C4D67D34C',
+                major: 1,
+                minor: 3
+			},  
+			{ 
+                id: '4',
+                uuid: '00000000-91FD-1001-B000-001C4D67D34C',
+                major: 1,
+                minor: 4
 			} 
 		];
     
