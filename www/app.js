@@ -290,17 +290,14 @@ var app = (function()
         for(var regionId in mHoge){
             var state = mRegionStateNames[mHoge[regionId].type];
             //電波の届かなくなったイベントは表示しない（ただしリストには残る）
-            if(state == 'Exit' 
-//               || localStorage.getItem(regionId) == 'acquired'
-              )
-            {
+            if(state == 'Exit'){
                continue;
             }
             var imagePath;
             var refLink;
             if(localStorage.getItem(regionId)=='acquired'){
                 imagePath = mRegionData[regionId].imagePath;
-                refLink = './stamp.html';
+                refLink = './introducePage.html';
             }else{
                 imagePath = './ui/images/questionM.png';
                 refLink = './stamp.html';
@@ -338,14 +335,14 @@ var app = (function()
 		// If the list is empty display a help text.
 		if (mRegionEvents.length <= 0)
 		{
-			var element = $(
-				'<li>'
-				+ '<strong>'
-				+	'Waiting for region events, please move into or out of a beacon region.'
-				+ '</strong>'
-				+ '</li>'
-				);
-			$('#events').append(element);
+//			var element = $(
+//				'<li>'
+//				+ '<strong>'
+//				+	'Waiting for region events, please move into or out of a beacon region.'
+//				+ '</strong>'
+//				+ '</li>'
+//				);
+//			$('#events').append(element);
 		}
 	}
 

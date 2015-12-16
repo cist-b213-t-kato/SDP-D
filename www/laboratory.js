@@ -5,28 +5,33 @@
 // TODO: Update with major/minor for your own beacons.
 var mRegionData = {
     '1':{
-        imagePath : "./ui/images/olaf.png" ,
-        name : "カートハウス・オラフ"
+        imagePath : './ui/images/olaf.png',
+        name : 'カートハウス・オラフ',
+        explanation: ''
     },
     
     '2':{
-        imagePath : "./ui/images/daiji.jpg" ,
-        name : "小林大二"
+        imagePath : './ui/images/daiji.jpg',
+        name: '小林大二',
+        explanation: 'えげつない人間'
     },
     
     '3':{
-        imagePath : "./ui/images/daiji.jpg" ,
-        name : "山川さん（人違い）"
+        imagePath : './ui/images/daiji.jpg',
+        name : '山川さん（人違い）',
+        explanation: ''
     },
     
     '4':{
-        imagePath : "./ui/images/daiji.jpg" ,
-        name : "まこっち（人違い）"
+        imagePath : './ui/images/daiji.jpg',
+        name: 'まこっち（人違い）',
+        explanation: ''
     },
     
     '5':{
-        imagePath : "./ui/images/daiji.jpg" ,
-        name : "石田先生（人違い）"
+        imagePath : './ui/images/daiji.jpg',
+        name : '石田先生（人違い）',
+        explanation: ''
     }
     
 };
