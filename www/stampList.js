@@ -17,7 +17,7 @@ for(var rId in mRegionData){
     element = $(
         '<div class="stamp" id="' + tagId + '">'
         + '<img src="' + imagePath + '"/><br/>'
-        + stampName
+        + stampName + 'スタンプ'
         + '</div>'
     );
     $('#stampList').append(element);

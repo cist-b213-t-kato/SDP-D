@@ -13,7 +13,7 @@ var mRegionData = {
     '2':{
         imagePath : './ui/images/daiji.jpg',
         name: '小林大二',
-        explanation: 'えげつない人間'
+        explanation: '人間工学のスペシャリスト　教祖様'
     },
     
     '3':{
