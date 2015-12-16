@@ -8,6 +8,55 @@
     <style>
         @import 'ui/css/evothings-app.css';
         @import 'ui/css/beacon-stamprally.css';
+        
+        .gridlayout{
+/*            text-align: justify;*/
+            margin: 0 auto;
+/*            background-color: #ffffff;*/
+/*
+            display: box;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -o-box;
+            display: -ms-box;
+*/
+            box-pack: justify;
+            -moz-box-pack: justify;
+            -webkit-box-pack: justify;
+            -o-box-pack: justify;
+            -ms-box-pack: justify;  
+        }
+        
+        .gridlayout:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+/*
+        
+        li {
+            display: inline
+        }
+*/
+        
+        .gridlayout .stamp{
+            float: left;
+            margin-right: 8px;
+            margin-bottom: 10px;
+            width: 100px;
+            word-wrap: break-word;
+            background-color: #303030;
+            /*はみ出した文字の省略*/
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis
+        }
+        
+        .stamp img{
+            width: 100px;
+            height: 100px
+        }
+        
     </style>
     <script>
         // Redirect console.log to Evothings Workbench.
@@ -22,17 +71,16 @@
     <script src="./laboratory.js"></script>
 </head>
 <body>
-    <div class="title dqfont">スタンプいちらん</div>
+<!--    <div class="title dqfont">スタンプいちらん</div>-->
     <div>
-    <span style="text-align:left">
-    <button onclick="history.back()">&lsaquo;</button>
-    </span>
-        <button class="dqfont" style="margin-left:100px" onclick="location.href='./trophyList.html'">トロフィーいちらんへ</button>
-    </span>
+        <span style="text-align:left">
+        <button onclick="history.back()">&lsaquo;</button>
+        </span>
+<!--            <button class="dqfont" style="margin-left:100px" onclick="location.href='./trophyList.html'">トロフィーいちらんへ</button>-->
     </div>
     <hr>
     
-    <div id="stampList"></div>
+    <div id="stampList" class="gridlayout"></div>
     
     <script type="text/javascript" src="./stampList.js"></script>
 </body>

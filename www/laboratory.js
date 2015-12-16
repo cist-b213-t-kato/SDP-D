@@ -22,6 +22,11 @@ var mRegionData = {
     '4':{
         imagePath : "./ui/images/daiji.jpg" ,
         name : "まこっち（人違い）"
+    },
+    
+    '5':{
+        imagePath : "./ui/images/daiji.jpg" ,
+        name : "石田先生（人違い）"
     }
     
 };

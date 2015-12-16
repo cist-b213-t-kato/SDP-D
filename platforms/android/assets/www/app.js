@@ -1,6 +1,6 @@
 
 // Nearest ranged beacon.
-var mNearestBeacon = null;
+var mNearestBeacon;
 
 var app = (function()
 {
@@ -297,10 +297,13 @@ var app = (function()
                continue;
             }
             var imagePath;
+            var refLink;
             if(localStorage.getItem(regionId)=='acquired'){
                 imagePath = mRegionData[regionId].imagePath;
+                refLink = './stamp.html';
             }else{
                 imagePath = './ui/images/questionM.png';
+                refLink = './stamp.html';
             }
             var time = mHoge[regionId].time;
             var stampName = mRegionData[regionId].name;
@@ -325,10 +328,8 @@ var app = (function()
             $('#'+tagId).click(function(){
                 var btnid = $(this).attr("id");
                 var getId = btnid.replace('region_', '');
-//                alert(getId);
-                //DOM Storageを使う
                 localStorage.setItem('regionId', getId);
-                location.href = './stamp.html';
+                location.href = refLink;
                 return false;
             });
             

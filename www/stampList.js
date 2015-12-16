@@ -1,38 +1,34 @@
-//if(mRegionData==null){
-//    alert('nullじゃ');
-//}else{
-//    alert('nullじゃないぞ');
-//}    
 
-//$('#stampList').empty();
-//var elem = $(
-//    '<p>piyo</p>'
-//);
-//$('#stampList').append(elem);
 
 for(var rId in mRegionData){
-    //チェックのため
-    localStorage.setItem('2', 'not required');
+//    //チェックのため
+//    localStorage.setItem('2', 'not required');
+    
+    var stampName = mRegionData[rId].name;
+    var tagId = 'region_' + rId;
     
     var imagePath;
     if(localStorage.getItem(rId)=='acquired'){
         imagePath = mRegionData[rId].imagePath;
+        $('#'+tagId).click(function(){
+            var btnid = $(this).attr("id");
+            var getId = btnid.replace('region_', '');
+            localStorage.setItem('regionId', getId);
+            location.href = './index.html';
+            return false;
+        });
     }else{
         imagePath = './ui/images/questionM.png';
     }
     
-    var stampName = mRegionData[rId].name;
-    var tagId = 'region_' + rId;
-//    alert(stampName);
     var element = $(
-        '<li class="eventBox" id="' + tagId + '">'
-        + '<div class="stamp">'
-        + '<img src="' + imagePath
-        + '" width="100" height="100"/><br/>'
-        + '</div>'
-        + '</li>'
+        '<span class="stamp" id="' + tagId + '">'
+        + '<img src="' + imagePath + '"/><br/>'
+        + stampName
+        + '</span>'
     );
     $('#stampList').append(element);
     
+
     
 }
