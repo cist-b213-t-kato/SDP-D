@@ -1,0 +1,16 @@
+.dqfont{
+    font-family: "DragonQuestFC";
+}
+
+button {
+    border-style: solid;
+    border-width: 1px;
+    background-color: hsla(0, 0%, 0%, 0.0);
+    font-size: 1.4em;
+    color: #FFFFFF;
+    padding: 10px
+}
+
+li{
+    list-style: none
+}

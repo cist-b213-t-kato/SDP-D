@@ -8,9 +8,9 @@
     <style>
         @import 'ui/css/evothings-app.css';
         
-        .imgBox{
-            width: 100%;
-            height: auto
+        .stamp{
+            width: 50%;
+            text-align: center
         }
         
     </style>
@@ -28,11 +28,12 @@
     <script src="stamp.js"></script>
 </head>
 
-<body> 
-    <div style="text-align: center">
-        <img id="stampimg" class="imgBox"/>
+<body>
+	<h1>スタンプをゲット！</h1>
+    <div style="text-align:center">
+        <img id="stampimg" class="imgBox stamp"/>
         <p id="getStampMessage"></p>
-        <button onclick="history.back()">戻る</button>
+        <button onclick="history.back()" style="width:50%; height:50px; font-size:25px">戻る</button>
     </div>
 </body>
 </html>

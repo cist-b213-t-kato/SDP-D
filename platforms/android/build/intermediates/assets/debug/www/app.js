@@ -1,6 +1,6 @@
 
 // Nearest ranged beacon.
-var mNearestBeacon = null;
+var mNearestBeacon;
 
 var app = (function()
 {
@@ -61,9 +61,14 @@ var app = (function()
     var mHoge = new Object();
     
     var mBeacons;
+    
+//    var acquiredStamp = [];
 
 	app.initialize = function()
 	{
+//        for(var i in mRegionData){
+//            localStorage.setItem(i, 'not required');
+//        }
 		document.addEventListener('deviceready', onDeviceReady, false);
 		document.addEventListener('pause', onAppToBackground, false);
 		document.addEventListener('resume', onAppToForeground, false);
@@ -252,9 +257,6 @@ var app = (function()
             $('#beacon').append(element);
 //        }
         
-//        //DOM Storageを使う
-//        localStorage.setItem('regionId', mNearestBeacon.minor);
-        
         //スタンプの表示
 //        $("img#viewer").attr({"src":mRegionData[mNearestBeacon.minor].imagePath});
         
@@ -284,8 +286,6 @@ var app = (function()
 	{
 		// Clear list.
 		$('#events').empty();
-
-//        $('#events').append('mHoge length: ' + mHoge.length);
         
 		// Update list.
         for(var regionId in mHoge){
@@ -294,7 +294,15 @@ var app = (function()
             if(state == 'Exit'){
                continue;
             }
-            var imagePath = mRegionData[regionId].imagePath;
+            var imagePath;
+            var refLink;
+            if(localStorage.getItem(regionId)=='acquired'){
+                imagePath = mRegionData[regionId].imagePath;
+                refLink = './introducePage.html';
+            }else{
+                imagePath = './ui/images/questionM.png';
+                refLink = './stamp.html';
+            }
             var time = mHoge[regionId].time;
             var stampName = mRegionData[regionId].name;
             var tagId = 'region_'+regionId;
@@ -306,47 +314,36 @@ var app = (function()
                 + '</div>'
                 + '<div class="text">'
                 + '<strong>'
-                + time + '<br/>' + stampName + '<br/>' + state + '<br/>'
+                + time + '<br/>'
+                + stampName + '<br/>'
                 + '</strong>'
                 + '</div>'
                 + '</li>'
-            );    
+            );
+            
             $('#events').append(element);
             
             $('#'+tagId).click(function(){
                 var btnid = $(this).attr("id");
                 var getId = btnid.replace('region_', '');
-//                alert(getId);
-                //DOM Storageを使う
                 localStorage.setItem('regionId', getId);
-                location.href = './stamp.html';
+                location.href = refLink;
                 return false;
             });
             
         }
-//		for (var i = mRegionEvents.length - 1; i >= 0; --i)
-//		{
-//			var event = mRegionEvents[i];
-//			var title = getEventDisplayString(event);
-//			var element = $(
-//				'<li>'
-//				+ '<strong>' + title + '</strong>'
-//				+ '</li>'
-//				);
-//			$('#events').append(element);
-//		}
 
 		// If the list is empty display a help text.
 		if (mRegionEvents.length <= 0)
 		{
-			var element = $(
-				'<li>'
-				+ '<strong>'
-				+	'Waiting for region events, please move into or out of a beacon region.'
-				+ '</strong>'
-				+ '</li>'
-				);
-			$('#events').append(element);
+//			var element = $(
+//				'<li>'
+//				+ '<strong>'
+//				+	'Waiting for region events, please move into or out of a beacon region.'
+//				+ '</strong>'
+//				+ '</li>'
+//				);
+//			$('#events').append(element);
 		}
 	}
 
