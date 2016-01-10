@@ -66,8 +66,9 @@ var app = (function()
 
 	app.initialize = function()
 	{
-        var elem = $('hogera');
-        $('#events').append(elem);
+//        for(var i in mRegionData){
+//            localStorage.setItem(i, 'not required');
+//        }
 		document.addEventListener('deviceready', onDeviceReady, false);
 		document.addEventListener('pause', onAppToBackground, false);
 		document.addEventListener('resume', onAppToForeground, false);
