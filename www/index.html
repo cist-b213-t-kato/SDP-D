@@ -41,14 +41,46 @@
             height: 100%
         }
         
-        
-        
+        .mapFrame {
+            width: 100%;
+            height: auto;
+        }
+
+        .mapButton {
+            /*  transformの比はmapの画像サイズ(height)によって変わる、逐次調整すること  */
+            transform: translateY(-210%);
+            width: 8%;
+            height: auto;
+        }
+
+        .map {
+            width: 82%;
+            height: auto;
+        }
         
 	</style>
 
 	<script>
         // Redirect console.log to Evothings Workbench.
         if (window.hyper && window.hyper.log) { console.log = hyper.log }
+        
+        var mapSrc = [];
+        mapSrc[0] = "./ui/images/map1.png"; //一階
+        mapSrc[1] = "./ui/images/map2.png"; //二階
+        mapSrc[2] = "./ui/images/map3.png"; //三階
+        
+        // 0:一階 1：二階 2:三階
+        var mapSeq = 0;
+        
+        // 地図の切り替えボタン
+        function replaceMap(delta) {
+            // mapSeqは0～2をループする
+            // mapSeq:2 delta:+1 -> mapSeq:0
+            // mapSeq:0 delta:-1 -> mapSeq:2
+            mapSeq = (mapSeq+delta+3) % 3;
+            document.getElementById('map').src = mapSrc[mapSeq];
+        }
+        
 	</script>
 
 	<script src="cordova.js"></script>
@@ -73,10 +105,18 @@
 	</header>
 -->
 
-	<h1>Open Campus</h1>
+<!--	<h1>Open Campus</h1>-->
     
     <div style="text-align: right">
         <button class="dqfont text" onclick='location.href="./stampListPage.html"'>スタンプいちらん</button>
+    </div>
+    
+    <div class="mapFrame">
+        <NOBR>
+            <img class="mapButton" src="./ui/images/leftbutton.png" alt="left" onclick="replaceMap(-1)">
+            <img id="map" class="map" src="./ui/images/map1.png" alt="map">
+            <img class="mapButton" src="./ui/images/rightbutton.png" alt="right" onclick="replaceMap(1)">
+        </NOBR>
     </div>
     
     <div class="dqframe">
