@@ -1,0 +1,8 @@
+body {
+	margin: 0;
+}
+
+@font-face{
+	font-family: "dqf";
+	src: url('../fonts/DragonQuestFC.ttf') format('truetype');
+}

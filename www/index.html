@@ -12,6 +12,7 @@
 	<style>
 		@import 'ui/css/evothings-app.css';
         @import 'ui/css/beacon-stamprally.css';
+        @import 'ui/css/font.css';
         
         .eventBox{
             width: 100%;
@@ -81,6 +82,7 @@
             document.getElementById('map').src = mapSrc[mapSeq];
         }
         
+        
 	</script>
 
 	<script src="cordova.js"></script>
@@ -113,18 +115,15 @@
     
     <div class="mapFrame">
         <NOBR>
-            <img class="mapButton" src="./ui/images/leftbutton.png" alt="left" onclick="replaceMap(-1)">
+            <img class="mapButton" src="./ui/images/leftbutton.png" alt="left" onclick="replaceMap(-1);">
             <img id="map" class="map" src="./ui/images/map1.png" alt="map">
-            <img class="mapButton" src="./ui/images/rightbutton.png" alt="right" onclick="replaceMap(1)">
+            <img class="mapButton" src="./ui/images/rightbutton.png" alt="right" onclick="replaceMap(1);">
         </NOBR>
     </div>
     
-    <div class="dqframe">
-        <div class="message">
-            よくきたな ひかりのこうこうせいよ<br/>
-            スタンプ を てにいれるのじゃ
-        </div>
-        <div class="mark">▼</div>
+    <div class="dqframe" width="100%" onclick="addMessage();">
+        <canvas id="dqmw" height="200px"></canvas>
+<!--        <div class="mark">▼</div>-->
     </div>
     
 <!--    <img id="viewer" src="ui/images/none.jpg" class="imgBox"/>-->
@@ -132,6 +131,11 @@
     
 <!--    <ul id="beacon" class="dynamic"></ul>-->
 
+    <script type="text/javascript" src="dqmw_min.js"></script>
+    <script type="text/javascript">
+        addMessage("よくきたな ひかりのこうこうせいよ#スタンプを てにいれるのじゃ#");
+        advance();//クリックした時と同じ効果
+    </script>
 </body>
 
 </html>
