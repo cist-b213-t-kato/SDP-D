@@ -4,10 +4,11 @@
 @import '../fonts/DragonQuestFC.css';
 
 body {
+/*
     padding: 30px 0px 0px 0px;
+    padding: 0px 5px;
+*/
     background-color: black;
-    width: 90%;
-    margin: auto auto auto auto;
     color: #FFFFFF;    
 }
 
@@ -47,7 +48,7 @@ body {
     height: 50px;
 }
 
-/*以下画像のpath*/
+以下画像のpath
 #icon1{
     image-resolution: "../image/olaf.png";
 }

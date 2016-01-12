@@ -96,24 +96,11 @@
 
 <body>
 
-<!--
-    // ナビバー
-	<header>
-		<button class="back" onclick="history.back()">
-			<img src="ui/images/arrow-left.svg" />
-		</button>
-		<img class="logotype" src="ui/images/logo.svg" alt="Evothings" />
-		<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>
-	</header>
--->
-
-<!--	<h1>Open Campus</h1>-->
-    
     <div style="text-align: right">
         <button class="dqfont text" onclick='location.href="./stampListPage.html"'>スタンプいちらん</button>
     </div>
     
-    <div class="mapFrame">
+    <div class="mapFrame" style="text-align:center; width:95%;">
         <NOBR>
             <img class="mapButton" src="./ui/images/leftbutton.png" alt="left" onclick="replaceMap(-1);">
             <img id="map" class="map" src="./ui/images/map1.png" alt="map">
@@ -121,19 +108,13 @@
         </NOBR>
     </div>
     
-    <div class="dqframe" width="100%" onclick="addMessage();">
-<!--
-        <div class="message">
-            よくきたな ひかりのこうこうせいよ<br/>
-            スタンプ を てにいれるのじゃ
-        </div>
--->
-        <canvas id="dqmw" height="200px"></canvas>
+    <div class="dqframe" style="text-align:center; width:95%;" height="200px" width="100%" onclick="addMessage();">
+        <canvas id="dqmw" height="100px"></canvas>
 <!--        <div class="mark">▼</div>-->
     </div>
     
 <!--    <img id="viewer" src="ui/images/none.jpg" class="imgBox"/>-->
-    <div id="events" class="dynamic"></div>
+    <div id="events" class="dynamic" style="width:95%;"></div>
     
 <!--    <ul id="beacon" class="dynamic"></ul>-->
 

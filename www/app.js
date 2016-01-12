@@ -336,14 +336,14 @@ var app = (function()
 		// If the list is empty display a help text.
 		if (mRegionEvents.length <= 0)
 		{
-//			var element = $(
-//				'<li>'
-//				+ '<strong>'
-//				+	'Waiting for region events, please move into or out of a beacon region.'
-//				+ '</strong>'
-//				+ '</li>'
-//				);
-//			$('#events').append(element);
+			var element = $(
+				'<li>'
+				+ '<strong>'
+				+	'ビーコンが見つかりません'
+				+ '</strong>'
+				+ '</li>'
+				);
+			$('#events').append(element);
 		}
 	}
 
