@@ -14,7 +14,7 @@ var mRegionData = {
     '2':{
         imagePath : './ui/images/hiroto.jpg',
         name: '山川さん',
-        explanation: 'メシ駆動開発のスペシャリスト\n蝶ネクタイが似合う'
+        explanation: 'メシ駆動開発のスペシャリスト<br>蝶ネクタイが似合う'
     },
     
     '3':{

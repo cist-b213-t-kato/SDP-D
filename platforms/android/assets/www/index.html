@@ -66,9 +66,9 @@
         if (window.hyper && window.hyper.log) { console.log = hyper.log }
         
         var mapSrc = [];
-        mapSrc[0] = "./ui/images/map1.png"; //一階
-        mapSrc[1] = "./ui/images/map2.png"; //二階
-        mapSrc[2] = "./ui/images/map3.png"; //三階
+        mapSrc[0] = "./ui/images/map1.jpg"; //一階
+        mapSrc[1] = "./ui/images/map2.jpg"; //二階
+        mapSrc[2] = "./ui/images/map3.jpg"; //三階
         
         // 0:一階 1：二階 2:三階
         var mapSeq = 0;
@@ -81,7 +81,6 @@
             mapSeq = (mapSeq+delta+3) % 3;
             document.getElementById('map').src = mapSrc[mapSeq];
         }
-        
         
 	</script>
 
@@ -102,19 +101,20 @@
     
     <div class="mapFrame" style="text-align:center; width:95%;">
         <NOBR>
-            <img class="mapButton" src="./ui/images/leftbutton.png" alt="left" onclick="replaceMap(-1);">
-            <img id="map" class="map" src="./ui/images/map1.png" alt="map">
-            <img class="mapButton" src="./ui/images/rightbutton.png" alt="right" onclick="replaceMap(1);">
+            <img class="mapButton" src="./ui/images/leftbutton.png" height="100px" alt="left" onclick="replaceMap(-1);">
+<!--            <img id="map" class="map" src="./ui/images/map1.jpg" alt="map">-->
+            <img id="map" class="map" src="./ui/images/map1.jpg" alt="map">
+            <img class="mapButton" src="./ui/images/rightbutton.png" height="100px" alt="right" onclick="replaceMap(1);">
         </NOBR>
     </div>
     
-    <div class="dqframe" style="text-align:center; width:95%;" height="200px" width="100%" onclick="addMessage();">
+    <div class="dqframe" style="margin:10px 1px; width:98%; height:120px;" onclick="addMessage();">
         <canvas id="dqmw" height="100px"></canvas>
 <!--        <div class="mark">▼</div>-->
     </div>
     
 <!--    <img id="viewer" src="ui/images/none.jpg" class="imgBox"/>-->
-    <div id="events" class="dynamic" style="width:95%;"></div>
+    <div id="events" class="dynamic" style="width:98%;"></div>
     
 <!--    <ul id="beacon" class="dynamic"></ul>-->
 
