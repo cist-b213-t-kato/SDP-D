@@ -1,4 +1,4 @@
-
+﻿
 // Nearest ranged beacon.
 var mNearestBeacon;
 
@@ -31,37 +31,37 @@ var app = (function()
 	// TODO: Update with uuid/major/minor for your beacons.
 	// You can add as many beacons as you want to use.
 	var mRegions =
-		[   
+		[
 			{
                 id: '1',
                 uuid: '00000000-91FD-1001-B000-001C4D67D34C',
                 major: 1,
-                minor: 1 
-			},  
-			{ 
+                minor: 1
+			},
+			{
                 id: '2',
                 uuid: '00000000-91FD-1001-B000-001C4D67D34C',
                 major: 1,
                 minor: 2
-			},  
-			{ 
+			},
+			{
                 id: '3',
                 uuid: '00000000-91FD-1001-B000-001C4D67D34C',
                 major: 1,
                 minor: 3
-			},  
-			{ 
+			},
+			{
                 id: '4',
                 uuid: '00000000-91FD-1001-B000-001C4D67D34C',
                 major: 1,
                 minor: 4
-			} 
+			}
 		];
-    
+
     var mHoge = new Object();
-    
+
     var mBeacons;
-    
+
 //    var acquiredStamp = [];
 
 	app.initialize = function()
@@ -115,7 +115,7 @@ var app = (function()
 
 		function onDidRangeBeaconsInRegion(result)
 		{
-            //beaconsをもらう？
+            //beacons繧偵ｂ繧峨≧?ｼ?
 			updateNearestBeacon(result.beacons);
 		}
 
@@ -171,14 +171,14 @@ var app = (function()
 	function saveRegionEvent(eventType, regionId)
 	{
 		// Save event.
-        // この方式は代入ではなく追加
+        // 縺薙?ｮ譁ｹ蠑上?ｯ莉｣蜈･縺ｧ縺ｯ縺ｪ縺剰ｿｽ蜉?
 		mRegionEvents.push(
 		{
 			type: eventType,
 			time: getTimeNow(),
 			regionId: regionId
 		});
-        
+
         //
         mHoge[regionId] = {
             type: eventType,
@@ -213,7 +213,7 @@ var app = (function()
 	function updateNearestBeacon(beacons)
 	{
         mBeacons = beacons;
-        
+
 		for (var i = 0; i < beacons.length; ++i)
 		{
 			var beacon = beacons[i];
@@ -256,10 +256,10 @@ var app = (function()
             );
             $('#beacon').append(element);
 //        }
-        
-        //スタンプの表示
+
+        //繧ｹ繧ｿ繝ｳ繝励?ｮ陦ｨ遉ｺ
 //        $("img#viewer").attr({"src":mRegionData[mNearestBeacon.minor].imagePath});
-        
+
 	}
 
 	function displayRecentRegionEvent()
@@ -286,11 +286,11 @@ var app = (function()
 	{
 		// Clear list.
 		$('#events').empty();
-        
+
 		// Update list.
         for(var regionId in mHoge){
             var state = mRegionStateNames[mHoge[regionId].type];
-            //電波の届かなくなったイベントは表示しない（ただしリストには残る）
+            //髮ｻ豕｢縺ｮ螻翫°縺ｪ縺上↑縺｣縺溘う繝吶Φ繝医?ｯ陦ｨ遉ｺ縺励↑縺?ｼ医◆縺?縺励Μ繧ｹ繝医↓縺ｯ谿九ｋ?ｼ?
             if(state == 'Exit'){
                continue;
             }
@@ -320,9 +320,9 @@ var app = (function()
                 + '</div>'
                 + '</li>'
             );
-            
+
             $('#events').append(element);
-            
+
             $('#'+tagId).click(function(){
                 var btnid = $(this).attr("id");
                 var getId = btnid.replace('region_', '');
@@ -330,7 +330,7 @@ var app = (function()
                 location.href = refLink;
                 return false;
             });
-            
+
         }
 
 		// If the list is empty display a help text.
@@ -339,7 +339,7 @@ var app = (function()
 			var element = $(
 				'<li>'
 				+ '<strong>'
-				+	'ビーコンが見つかりません'
+				+	'繝薙?ｼ繧ｳ繝ｳ縺瑚ｦ九▽縺九ｊ縺ｾ縺帙ｓ'
 				+ '</strong>'
 				+ '</li>'
 				);
